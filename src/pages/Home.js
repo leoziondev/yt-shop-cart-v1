@@ -1,12 +1,28 @@
 import { CartState } from "../context/Context"
 
-const Home = () => {
-    const { state } = CartState()
+import SingleProduct from "../components/SingleProduct"
+import Filters from "../components/Filters"
 
-    console.log(state)
+import './Home.css'
+
+const Home = () => {
+    const { 
+        state: { products }, 
+    } = CartState()
+
+    console.log(products)
 
     return (
-        <div>Home</div>
+        <div className="home">
+            <Filters />
+            <div className="productContainer">
+                {
+                    products.map((prod) => {
+                       return <SingleProduct prod={prod} key={prod.id} />
+                    })
+                }
+            </div>
+        </div>
     )
 }
 
