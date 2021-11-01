@@ -5,16 +5,18 @@ import { Link } from "react-router-dom"
 
 const Header = () => {
     return (
-        <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
-            <Container>
+        <Navbar 
+            bg="dark"
+            variant="dark"
+            className="navBar d-flex justify-content-between align-items-center"
+        >
+            
                 <Navbar.Brand>
                     <Link to="/">Shopping Cart</Link>
                 </Navbar.Brand>
                 <Navbar.Text className="search">
                     <FormControl
-                        style={{ width: 350 }}
-                        placeholder="Search a product"
-                        className="m-auto"
+                        placeholder="Search a product"                        
                     />
                 </Navbar.Text>
 
@@ -25,12 +27,11 @@ const Header = () => {
                             <Badge>{10}</Badge>
                         </Dropdown.Toggle>
     
-                        <Dropdown.Menu style={{ minWidth: 370 }}>
+                        <Dropdown.Menu style={{ minWidth: 370, position: 'absolute', right: 0, left: 'initial', marginTop: '10px' }} className="border-0 shadow-lg">
                             <span style={{ padding: 10 }}>Cart is Empty!</span>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Nav>
-            </Container>
         </Navbar>
     )
 }
