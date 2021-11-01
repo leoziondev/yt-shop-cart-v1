@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { CartState } from "../context/Context"
 
 import Rating from './Rating'
-import { ListGroup, Button, Row, Col, Form, Image } from "react-bootstrap"
+import { ListGroup, Button, Row, Col, Form, Image, Container } from "react-bootstrap"
 import { AiFillDelete } from "react-icons/ai"
 
 const Cart = () => {
@@ -18,9 +18,9 @@ const Cart = () => {
     }, [cart])
 
     return (
-        <div className="home">
-            <div className="productContainer">
-                <ListGroup>
+        <div className="carPage home">
+            <div className="cartPage__list">
+                <ListGroup style={{ marginTop: 20 }}>
                     {
                         cart.map((prod) => (
                             <ListGroup.Item key={prod.id}>
@@ -35,7 +35,19 @@ const Cart = () => {
                                         <Rating rating={prod.ratings} />
                                     </Col>
                                     <Col md={2}>
-                                        <Form.Control as="select" value={prod.qty}>
+                                        <Form.Control
+                                            as="select"
+                                            value={prod.qty}
+                                            onChange={(e) => 
+                                                dispatch({
+                                                    type: "CHANGE_CART_QTY",
+                                                    payload: {
+                                                        id: prod.id,
+                                                        qty: e.target.value
+                                                    }
+                                                })
+                                            }
+                                        >
                                             {[...Array(prod.inStock).keys()].map((x) => (
                                                 <option key={x + 1}>{x + 1}</option>
                                             ))}

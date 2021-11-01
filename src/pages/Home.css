@@ -66,6 +66,10 @@
     font-weight: bold;
 }
 
+.list-group img {
+    width: 80px;
+}
+
 .summary {
     background-color: white;
     padding: 20px;
@@ -93,7 +97,7 @@
     .home {
         display: flex;
     }
-    
+
     .search > .form-control {
         width: 450px;
     }
@@ -130,6 +134,11 @@
         margin-top: 20px;
         height: 42vh;
         border-radius: 5px;
+    }
+
+    .cartPage__list {
+        width: 80%;
+        padding: 0 10px;
     }
 
     .summary {
