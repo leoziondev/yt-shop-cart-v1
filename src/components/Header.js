@@ -1,14 +1,15 @@
 import { CartState } from "../context/Context"
 import { Link } from "react-router-dom"
 
-import { Container, Navbar, FormControl, Nav, Dropdown, Badge, Button } from "react-bootstrap"
+import { Navbar, FormControl, Nav, Dropdown, Badge, Button } from "react-bootstrap"
 import { AiFillDelete } from "react-icons/ai"
 import { FaShoppingCart } from 'react-icons/fa'
 
 const Header = () => {
     const {
         state: { cart },
-        dispatch
+        dispatch,
+        productDispatch
     } = CartState()
 
     return (
@@ -23,7 +24,13 @@ const Header = () => {
                 </Navbar.Brand>
                 <Navbar.Text className="search">
                     <FormControl
-                        placeholder="Search a product"                        
+                        placeholder="Search a product"
+                        onChange={(e) => {
+                            productDispatch({
+                                type: "FILTER_BY_SEARCH",
+                                payload: e.target.value
+                            })
+                        }}                      
                     />
                 </Navbar.Text>
 

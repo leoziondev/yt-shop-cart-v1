@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { CartState } from "../context/Context"
 
 import Rating from './Rating'
-import { ListGroup, Button, Row, Col, Form, Image, Container } from "react-bootstrap"
+import { ListGroup, Button, Row, Col, Form, Image } from "react-bootstrap"
 import { AiFillDelete } from "react-icons/ai"
 
 const Cart = () => {
